@@ -9,7 +9,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className='navbar navbar-dark bg-dark navbar-light bg-light'>
+    <nav className='navbar navbar-dark bg-dark navbar-light bg-light zindex-tooltip' >
       <div className='container-fluid d-flex bd-highlight'>
         <Link className='navbar-brand me-auto p-2 bd-highlight' to='/'>
           Главная
@@ -48,7 +48,7 @@ const NavBar = () => {
         >
           <span className='navbar-toggler-icon'></span>
         </button>
-        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+        <div className='collapse navbar-collapse zindex-tooltip' id='navbarSupportedContent'>
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             <li className='nav-item dropdown'>
               <div

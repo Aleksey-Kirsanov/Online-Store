@@ -16,7 +16,7 @@ import Info from "./components/menuItems/info";
 
 import NavBar from "./components/navBar";
 import Footer from "./components/footer";
-import Subcategories from "./components/subcategories"
+import Subcategories from "./components/subcategories";
 
 import Hits from "./components/subcategories/hits";
 import News from "./components/subcategories/news";

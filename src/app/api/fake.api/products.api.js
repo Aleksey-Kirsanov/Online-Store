@@ -1,4 +1,4 @@
-const goods = [
+const products = [
   {
     _id: "1",
     name: "Палочки для Ароматического диффузора",
@@ -10,7 +10,7 @@ const goods = [
     photo: "https://ae01.alicdn.com/kf/S699b972435ea40848974b6842687ec52I.jpg",
   },
   {
-    _id: "1",
+    _id: "2",
     name: "АГАВА И ХРИЗАНТЕМА",
     category: "Свечи",
     subcategory: "Новинки",
@@ -22,7 +22,7 @@ const goods = [
       "https://cdn.leroymerlin.ru/lmru/image/upload/v1634707465/b_white,c_pad,d_photoiscoming.png,f_auto,h_600,q_auto,w_600/lmcode/Zg5-se-46EKTcDyA9ypGgg/89090944_01.jpg",
   },
   {
-    _id: "1",
+    _id: "3",
     name: "АПЕЛЬСИН И ПЕРЕЦ",
     category: "Cвечи",
     subcategory: "Акции",
@@ -34,7 +34,7 @@ const goods = [
       "https://cdn.leroymerlin.ru/lmru/image/upload/v1634707465/b_white,c_pad,d_photoiscoming.png,f_auto,h_600,q_auto,w_600/lmcode/Zg5-se-46EKTcDyA9ypGgg/89090944_01.jpg",
   },
   {
-    _id: "1",
+    _id: "4",
     name: "БАНАНОВЫЙ ХЛЕБ С ОРЕХАМИ",
     category: "Cвечи",
     subcategory: "Хиты",
@@ -46,7 +46,7 @@ const goods = [
       "https://cdn.leroymerlin.ru/lmru/image/upload/v1634707465/b_white,c_pad,d_photoiscoming.png,f_auto,h_600,q_auto,w_600/lmcode/Zg5-se-46EKTcDyA9ypGgg/89090944_01.jpg",
   },
   {
-    _id: "1",
+    _id: "5",
     name: "БЕЛАЯ СМОРОДИНА И МЯТА",
     category: "Cвечи",
     subcategory: "",
@@ -58,7 +58,7 @@ const goods = [
       "https://cdn.leroymerlin.ru/lmru/image/upload/v1634707465/b_white,c_pad,d_photoiscoming.png,f_auto,h_600,q_auto,w_600/lmcode/Zg5-se-46EKTcDyA9ypGgg/89090944_01.jpg",
   },
   {
-    _id: "1",
+    _id: "6",
     name: "ВИШНЯ И ЧЕРЕШНЯ",
     category: "Ароматические диффузоры",
     subcategory: "Новинки",
@@ -70,7 +70,7 @@ const goods = [
       "https://avatars.mds.yandex.net/get-mpic/3927509/img_id5560785999008734444.jpeg/orig",
   },
   {
-    _id: "1",
+    _id: "7",
     name: "ГРАНАТ И СМОРОДИНА",
     category: "Ароматические диффузоры",
     subcategory: "Акции",
@@ -82,7 +82,7 @@ const goods = [
       "https://avatars.mds.yandex.net/get-mpic/3927509/img_id5560785999008734444.jpeg/orig",
   },
   {
-    _id: "1",
+    _id: "8",
     name: "ИМБИРЬ И ГРЕЙПФРУТ",
     category: "Ароматические диффузоры",
     subcategory: "Хиты",
@@ -94,7 +94,7 @@ const goods = [
       "https://avatars.mds.yandex.net/get-mpic/3927509/img_id5560785999008734444.jpeg/orig",
   },
   {
-    _id: "1",
+    _id: "9",
     name: "КЛЮКВА И СПЕЦИИ",
     category: "Ароматические диффузоры",
     subcategory: "",
@@ -106,7 +106,7 @@ const goods = [
       "https://avatars.mds.yandex.net/get-mpic/3927509/img_id5560785999008734444.jpeg/orig",
   },
   {
-    _id: "1",
+    _id: "10",
     name: "ВИШНЯ И ЧЕРЕШНЯ",
     category: "Автомобильные диффузоры",
     subcategory: "Новинки",
@@ -117,7 +117,7 @@ const goods = [
     photo: "https://basket-01.wb.ru/vol83/part8303/8303330/images/big/2.jpg",
   },
   {
-    _id: "1",
+    _id: "11",
     name: "ГРАНАТ И СМОРОДИНА",
     category: "Автомобильные диффузоры",
     subcategory: "Акции",
@@ -128,7 +128,7 @@ const goods = [
     photo: "https://basket-01.wb.ru/vol83/part8303/8303330/images/big/2.jpg",
   },
   {
-    _id: "1",
+    _id: "12",
     name: "ИМБИРЬ И ГРЕЙПФРУТ",
     category: "Автомобильные диффузоры",
     subcategory: "Хиты",
@@ -139,7 +139,7 @@ const goods = [
     photo: "https://basket-01.wb.ru/vol83/part8303/8303330/images/big/2.jpg",
   },
   {
-    _id: "1",
+    _id: "13",
     name: "КЛЮКВА И СПЕЦИИ",
     category: "Автомобильные диффузоры",
     subcategory: "",
@@ -154,14 +154,14 @@ const goods = [
 const fetchAll = () =>
   new Promise((resolve) => {
     window.setTimeout(function() {
-      resolve(users);
-    }, 2000);
+      resolve(products);
+    }, 1000);
   });
 
 const getById = (id) =>
   new Promise((resolve) => {
     window.setTimeout(function() {
-      resolve(users.find((user) => user._id === id));
+      resolve(products.find((product) => product._id === id));
     }, 1000);
   });
 export default {

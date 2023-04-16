@@ -11,21 +11,21 @@ const Footer = () => {
   };
 
   return (
-    <nav className='navbar  fixed-bottom navbar-dark bg-dark navbar-light bg-light'>
+    <nav className='navbar fixed-bottom navbar-dark bg-dark navbar-light bg-light'>
       <form className='container-fluid justify-content-end'>
         <button
           onClick={handleClickShoppingCart}
-          className='btn btn-outline-warning me-2'
+          className='btn me-1'
           type='button'
         >
-          Корзина
+          <i className={"fs-4 text-warning bi bi-cart4"}></i>
         </button>
         <button
           onClick={handleClickFavorites}
-          className='btn btn-outline-danger me-2'
+          className='btn me-1'
           type='button'
         >
-          Избранное
+          <i className={"fs-4 text-danger bi bi-bag-heart-fill"}></i>
         </button>
       </form>
     </nav>

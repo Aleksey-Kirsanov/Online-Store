@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-import TextField from "../components/textField";
+import TextField from "../components/common/form/textField";
 import { validator } from "../utils/validator";
 
 const Login = () => {

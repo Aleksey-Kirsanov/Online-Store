@@ -11,7 +11,7 @@ const Footer = () => {
   };
 
   return (
-    <nav className='navbar fixed-bottom navbar-dark bg-dark navbar-light bg-light'>
+    <nav className='navbar fixed-bottom navbar-dark bg-dark d-flex'>
       <form className='container-fluid justify-content-end'>
         <button
           onClick={handleClickShoppingCart}

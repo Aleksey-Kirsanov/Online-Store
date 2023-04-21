@@ -4,23 +4,23 @@ import { Route, Switch } from "react-router-dom";
 import Main from "./layouts/main";
 import Login from "./layouts/login";
 import Enter from "./layouts/enter";
-import CardProduct from "./layouts/cardProduct";
-import Category from "./components/menuItems/category";
+import ProductCard from "./components/common/productCard";
+import Category from "./components/page/category/category";
 import ShoppingCart from "./layouts/shoppingCart";
 import Favorites from "./layouts/favorites";
 import Admin from "./layouts/admin";
-import PaymentPage from "./layouts/paymentPage";
-import Contacts from "./components/menuItems/contacts";
-import Delivery from "./components/menuItems/delivery";
-import Info from "./components/menuItems/info";
+import PaymentPage from "./components/common/paymentPage";
+import Contacts from "./components/ui/menuItems/contacts";
+import Delivery from "./components/ui/menuItems/delivery";
+import Info from "./components/ui/menuItems/info";
 
-import NavBar from "./components/navBar";
-import Footer from "./components/footer";
-import Subcategories from "./components/subcategories";
+import NavBar from "./components/ui/navBar";
+import Footer from "./components/ui/footer";
+import Subcategories from "./components/ui/menuItems/subcategories";
 
-import Hits from "./components/subcategories/hits";
-import News from "./components/subcategories/news";
-import Sales from "./components/subcategories/sales";
+import Hits from "./components/page/subcategories/hits";
+import News from "./components/page/subcategories/news";
+import Sales from "./components/page/subcategories/sales";
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
         <Route path='/' exact component={Main} />
         <Route path='/login' component={Login} />
         <Route path='/enter' component={Enter} />
-        <Route path='/cardProduct' component={CardProduct} />
+        <Route path='/productCard' component={ProductCard} />
         <Route path='/category' component={Category} />
         <Route path='/shoppingCart' component={ShoppingCart} />
         <Route path='/favorites' component={Favorites} />

@@ -1,3 +1,7 @@
 .navbar {
   z-index: 2000;
 }
+
+#productCardContainer {
+  margin-bottom: 120px !important
+}

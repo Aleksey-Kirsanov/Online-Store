@@ -7,6 +7,9 @@ const NavBar = () => {
   const handleClickEnter = () => {
     history.push("/enter");
   };
+  const handleClickAdmin = () => {
+    history.push("/admin");
+  };
 
   return (
     <nav className='navbar navbar-dark bg-dark navbar-light bg-light zindex-tooltip'>
@@ -18,6 +21,7 @@ const NavBar = () => {
           <button
             className='btn btn-outline-success me-2'
             type='button'
+            onClick={handleClickAdmin}
             disabled
           >
             Редактировать
@@ -27,7 +31,7 @@ const NavBar = () => {
             type='button'
             disabled
           >
-            Профиль
+            User (выход) 
           </button>
           <button
             onClick={handleClickEnter}

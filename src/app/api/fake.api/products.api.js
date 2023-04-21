@@ -8,6 +8,8 @@ const products = [
     price: 150,
     quantity: 30,
     photo: "https://ae01.alicdn.com/kf/S699b972435ea40848974b6842687ec52I.jpg",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "2",
@@ -20,6 +22,8 @@ const products = [
     quantity: 25,
     photo:
       "https://cdn.leroymerlin.ru/lmru/image/upload/v1634707465/b_white,c_pad,d_photoiscoming.png,f_auto,h_600,q_auto,w_600/lmcode/Zg5-se-46EKTcDyA9ypGgg/89090944_01.jpg",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "3",
@@ -32,6 +36,8 @@ const products = [
     quantity: 25,
     photo:
       "https://cdn.leroymerlin.ru/lmru/image/upload/v1634707465/b_white,c_pad,d_photoiscoming.png,f_auto,h_600,q_auto,w_600/lmcode/Zg5-se-46EKTcDyA9ypGgg/89090944_01.jpg",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "4",
@@ -44,6 +50,8 @@ const products = [
     quantity: 25,
     photo:
       "https://cdn.leroymerlin.ru/lmru/image/upload/v1634707465/b_white,c_pad,d_photoiscoming.png,f_auto,h_600,q_auto,w_600/lmcode/Zg5-se-46EKTcDyA9ypGgg/89090944_01.jpg",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "5",
@@ -56,6 +64,8 @@ const products = [
     quantity: 25,
     photo:
       "https://cdn.leroymerlin.ru/lmru/image/upload/v1634707465/b_white,c_pad,d_photoiscoming.png,f_auto,h_600,q_auto,w_600/lmcode/Zg5-se-46EKTcDyA9ypGgg/89090944_01.jpg",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "6",
@@ -68,6 +78,8 @@ const products = [
     quantity: 25,
     photo:
       "https://avatars.mds.yandex.net/get-mpic/3927509/img_id5560785999008734444.jpeg/orig",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "7",
@@ -80,6 +92,8 @@ const products = [
     quantity: 25,
     photo:
       "https://avatars.mds.yandex.net/get-mpic/3927509/img_id5560785999008734444.jpeg/orig",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "8",
@@ -92,6 +106,8 @@ const products = [
     quantity: 25,
     photo:
       "https://avatars.mds.yandex.net/get-mpic/3927509/img_id5560785999008734444.jpeg/orig",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "9",
@@ -104,6 +120,8 @@ const products = [
     quantity: 25,
     photo:
       "https://avatars.mds.yandex.net/get-mpic/3927509/img_id5560785999008734444.jpeg/orig",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "10",
@@ -115,6 +133,8 @@ const products = [
     price: 700,
     quantity: 25,
     photo: "https://basket-01.wb.ru/vol83/part8303/8303330/images/big/2.jpg",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "11",
@@ -126,6 +146,8 @@ const products = [
     price: 700,
     quantity: 25,
     photo: "https://basket-01.wb.ru/vol83/part8303/8303330/images/big/2.jpg",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "12",
@@ -137,6 +159,8 @@ const products = [
     price: 700,
     quantity: 25,
     photo: "https://basket-01.wb.ru/vol83/part8303/8303330/images/big/2.jpg",
+    bookmark: false,
+    shoppingСart: false,
   },
   {
     _id: "13",
@@ -148,6 +172,8 @@ const products = [
     price: 700,
     quantity: 25,
     photo: "https://basket-01.wb.ru/vol83/part8303/8303330/images/big/2.jpg",
+    bookmark: false,
+    shoppingСart: false,
   },
 ];
 
@@ -164,6 +190,7 @@ const getById = (id) =>
       resolve(products.find((product) => product._id === id));
     }, 1000);
   });
+
 export default {
   fetchAll,
   getById,

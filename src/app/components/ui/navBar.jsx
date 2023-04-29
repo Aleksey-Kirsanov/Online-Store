@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 
 const NavBar = () => {
   const history = useHistory();
-  const handleClickEnter = () => {
-    history.push("/enter");
+  const handleClickLogin = () => {
+    history.push("/login");
   };
   const handleClickAdmin = () => {
     history.push("/admin");
@@ -31,10 +31,10 @@ const NavBar = () => {
             type='button'
             disabled
           >
-            User (выход) 
+            User (выход)
           </button>
           <button
-            onClick={handleClickEnter}
+            onClick={handleClickLogin}
             className='btn btn-sm btn-outline-secondary me-2'
             type='button'
           >

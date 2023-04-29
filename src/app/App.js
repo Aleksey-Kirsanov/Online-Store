@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 
 import Main from "./layouts/main";
 import Login from "./layouts/login";
-import Enter from "./layouts/enter";
 import ProductCard from "./components/common/productCard";
 import Category from "./components/page/category/category";
 import ShoppingCart from "./layouts/shoppingCart";
@@ -29,8 +28,7 @@ function App() {
       <Subcategories />
       <Switch>
         <Route path='/' exact component={Main} />
-        <Route path='/login' component={Login} />
-        <Route path='/enter' component={Enter} />
+        <Route path='/login/:type?' component={Login} />
         <Route path='/productCard' component={ProductCard} />
         <Route path='/category' component={Category} />
         <Route path='/shoppingCart' component={ShoppingCart} />

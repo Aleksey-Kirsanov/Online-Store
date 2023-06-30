@@ -13,20 +13,17 @@ const Footer = () => {
   return (
     <nav className='navbar fixed-bottom navbar-dark bg-dark d-flex'>
       <form className='container-fluid justify-content-end'>
-        <button
+        <i
+          className={"fs-4 text-warning bi bi-cart4 mx-3"}
+          role='button'
           onClick={handleClickShoppingCart}
-          className='btn me-1'
-          type='button'
-        >
-          <i className={"fs-4 text-warning bi bi-cart4"}></i>
-        </button>
-        <button
+        ></i>
+
+        <i
+          className={"fs-4 text-danger bi bi-bag-heart-fill mx-3"}
+          role='button'
           onClick={handleClickFavorites}
-          className='btn me-1'
-          type='button'
-        >
-          <i className={"fs-4 text-danger bi bi-bag-heart-fill"}></i>
-        </button>
+        ></i>
       </form>
     </nav>
   );

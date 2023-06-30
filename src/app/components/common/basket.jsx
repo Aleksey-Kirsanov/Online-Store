@@ -6,9 +6,11 @@ const Basket = ({ status, ...rest }) => {
     ? "text-warning bi bi-cart-check-fill"
     : "text-warning bi bi-cart";
   return (
-    <button {...rest} className='btn btn-outline-secondary me-2' type='button'>
-      <i className={classNameStatus}></i>
-    </button>
+      <i
+        className={"mx-2 " + classNameStatus}
+        {...rest}
+        role='button'
+      ></i>
   );
 };
 Basket.propTypes = {

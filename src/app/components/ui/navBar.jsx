@@ -2,47 +2,66 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ setSearchQuery, searchQuery }) => {
   const history = useHistory();
+  const isLogin = false;
+  const isAdmin = false;
+
+  const clearSearch = () => {
+    setSearchQuery("");
+  };
   const handleClickLogin = () => {
+    clearSearch();
     history.push("/login");
   };
   const handleClickAdmin = () => {
+    clearSearch();
     history.push("/admin");
+  };
+  const handleSearchQuery = ({ target }) => {
+    setSearchQuery(target.value);
   };
 
   return (
-    <nav className='navbar navbar-dark bg-dark navbar-light bg-light zindex-tooltip'>
+    <nav className='navbar navbar-expand-xxl navbar-dark bg-dark zindex-tooltip'>
       <div className='container-fluid d-flex bd-highlight'>
-        <Link className='navbar-brand me-auto p-2 bd-highlight' to='/'>
+        <Link
+          className='navbar-brand me-auto p-2 bd-highlight'
+          to='/'
+          onClick={clearSearch}
+        >
           Главная
         </Link>
         <div className='p-2 bd-highlight'>
-          <button
-            className='btn btn-outline-success me-2'
-            type='button'
-            onClick={handleClickAdmin}
-            disabled
-          >
-            Редактировать
-          </button>
-          <button
-            className='btn btn-sm btn-outline-secondary me-2'
-            type='button'
-            disabled
-          >
-            User (выход)
-          </button>
-          <button
-            onClick={handleClickLogin}
-            className='btn btn-sm btn-outline-secondary me-2'
-            type='button'
-          >
-            Вход/Регистрация
-          </button>
+          {isAdmin && (
+            <button
+              className='btn btn-outline-success m-2'
+              type='button'
+              onClick={handleClickAdmin}
+            >
+              Редактировать
+            </button>
+          )}
+          {isLogin ? (
+            <button
+              className='btn btn-sm btn-outline-secondary m-2'
+              type='button'
+              disabled
+            >
+              User (выход)
+            </button>
+          ) : (
+            <button
+              onClick={handleClickLogin}
+              className='btn btn-sm btn-outline-secondary m-2'
+              type='button'
+            >
+              Вход/Регистрация
+            </button>
+          )}
         </div>
         <button
-          className='navbar-toggler p-2 bd-highlight'
+          className='navbar-toggler p-2 bd-highlight '
           type='button'
           data-bs-toggle='collapse'
           data-bs-target='#navbarSupportedContent'
@@ -53,7 +72,7 @@ const NavBar = () => {
           <span className='navbar-toggler-icon'></span>
         </button>
         <div
-          className='collapse navbar-collapse zindex-tooltip '
+          className='navbar-collapse zindex-tooltip collapse'
           id='navbarSupportedContent'
         >
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
@@ -70,29 +89,32 @@ const NavBar = () => {
               </div>
               <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
                 <li>
-                  <Link className='dropdown-item' to='/category'>
-                    Категория 1
+                  <Link className='dropdown-item' to='/candle'           onClick={clearSearch}>
+                    Ароматические свечи
                   </Link>
                 </li>
                 <li>
-                  <Link className='dropdown-item' to='/category'>
-                    Категория 2
+                  <Link className='dropdown-item' to='/dif'           onClick={clearSearch}>
+                    Диффузоры
+                  </Link>
+                  <Link className='dropdown-item' to='/auto'           onClick={clearSearch}>
+                    Автомобильные диффузоры
                   </Link>
                 </li>
               </ul>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/delivery'>
+              <Link className='nav-link' to='/delivery'           onClick={clearSearch}>
                 Доставка и оплата
               </Link>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/contacts'>
+              <Link className='nav-link' to='/contacts'           onClick={clearSearch}>
                 Контанты
               </Link>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/info'>
+              <Link className='nav-link' to='/info'           onClick={clearSearch}>
                 О нас
               </Link>
             </li>
@@ -100,13 +122,13 @@ const NavBar = () => {
           <form className='d-flex'>
             <input
               className='form-control me-2'
-              type='search'
+              name='searchQuery'
+              type='text'
               placeholder='Поиск по каталогу'
               aria-label='Search'
+              onChange={handleSearchQuery}
+              value={searchQuery}
             />
-            <button className='btn btn-outline-success' type='submit'>
-              Найти
-            </button>
           </form>
         </div>
       </div>

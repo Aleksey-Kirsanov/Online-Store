@@ -13,30 +13,33 @@ const Contacts = () => {
         quos sit enim! Earum, laboriosam.
       </p>
       <div className='text-end'>
-        <button
-          // onClick={handleClickShoppingCart}
+        <a
+          target='_blank'
+          href='https://mail.ru/'
           className='btn me-1'
-          type='button'
+          role='button'
         >
           <i className='bi bi-envelope text-warning'></i>
           <h6>Email</h6>
-        </button>
-        <button
-          // onClick={handleClickShoppingCart}
+        </a>
+        <a
+          target='_blank'
+          href='https://www.whatsapp.com/?lang=ru'
           className='btn me-1'
-          type='button'
+          role='button'
         >
           <i className='bi bi-whatsapp text-success'></i>
           <h6>WhatsApp</h6>
-        </button>
-        <button
-          // onClick={handleClickShoppingCart}
+        </a>
+        <a
+          target='_blank'
+          href='https://web.telegram.org/a/'
           className='btn me-1'
-          type='button'
+          role='a'
         >
           <i className='bi bi-telegram text-primary'></i>
           <h6>Telegram</h6>
-        </button>
+        </a>
       </div>
     </div>
   );

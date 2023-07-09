@@ -1,34 +1,36 @@
-import React, { useState, useEffect } from "react";
-import api from "../api";
+import React, { useState } from "react";
 import _ from "lodash";
 import ProductsTable from "../components/ui/productsTable";
 import PaymentPage from "../components/common/paymentPage";
+import { Link } from "react-router-dom";
+import { useProducts } from "../components/hooks/useProducts";
 
 const ShoppingCart = () => {
-  const [products, setProducts] = useState();
+  const { products, setProducts, basketProducts } = useProducts();
   const [sortBy, setSortBy] = useState({ path: "name", order: "asc" });
-  const [total, setTotal] = useState({
-    price: 20,
-    quantity: 30,
-  });
 
-  useEffect(() => {
-    api.products.fetchAll().then((data) => setProducts(data));
-  }, []);
-
-  const handleDelete = (productId) => {
-    setProducts(products.filter((product) => product._id !== productId));
+  const handleDelete = (id) => {
+    const newArray = products.map((product) => {
+      if (product._id === id) {
+        return { ...product, shoppingСart: !product.shoppingСart };
+      }
+      return product;
+    });
+    setProducts(newArray);
   };
 
   const handleBookMark = (productId) => {
     const newArray = products.map((product) => {
       if (product._id === productId) {
-        return { ...product, bookmark: !product.bookmark };
+        return {
+          ...product,
+          bookmark: !product.bookmark,
+          shoppingСart: !product.shoppingСart,
+        };
       }
       return product;
     });
     setProducts(newArray);
-    setProducts(products.filter((product) => product._id !== productId));
   };
 
   const handleSort = (item) => {
@@ -69,18 +71,27 @@ const ShoppingCart = () => {
       (product) => product.shoppingСart == true
     );
 
-    const count = filteredProducts.length;
+    // const count = filteredProducts.length;
 
     // const sortedProducts = _.orderBy(
     //   filteredProducts,
     //   [sortBy.path],
     //   [sortBy.order]
     // );
-
+    if (!filteredProducts.length) {
+      return (
+        <div className='text-center'>
+          <h1>Ваша корзина пуста</h1>
+          <Link className='navbar-brand me-auto p-2 bd-highlight' to='/'>
+            К покупкам!
+          </Link>
+        </div>
+      );
+    }
     return (
       <>
         <h1 className='text-center'>Корзина</h1>
-        <div className='d-flex'>
+        <div className='d-flex justify-content-center'>
           <div className='d-flex flex-column'>
             <ProductsTable
               products={filteredProducts}
@@ -98,9 +109,9 @@ const ShoppingCart = () => {
                 <h3 className='card-title text-center'>Информация о заказе</h3>
                 <p className='card-text'>
                   Товаров в карзине :{" "}
-                  {`Стоимость ${filteredProducts.reduce((acc, el) => {
+                  {` ${filteredProducts.reduce((acc, el) => {
                     return acc + el.quantity;
-                  }, 0)} руб.`}{" "}
+                  }, 0)} шт.`}{" "}
                   <br />
                   {`Стоимость ${filteredProducts.reduce((acc, el) => {
                     return acc + el.totalPrice;

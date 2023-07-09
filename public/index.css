@@ -3,7 +3,46 @@
 }
 
 #productCardContainer {
-  margin-bottom: 120px !important
+  margin-bottom: 120px !important;
 }
 
-
+.sale {
+  background-color: #fe0149;
+  color: aliceblue;
+  margin: 3px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.new {
+  background-color: #eadd00;
+  color: aliceblue;
+  margin: 3px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.hits {
+  background-color: #2ee700;
+  color: aliceblue;
+  margin: 3px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.price:after {
+  content: " \20BD";
+}
+.old-price {
+  text-decoration: line-through;
+  text-decoration-color: #fe0149;
+}
+.new-price {
+  color: #fe0149;
+}
+.tooltip-inner {
+  max-width: 250px;
+  color: #fff;
+  background-color: #17a2b8;
+  border-radius: 0.25rem;
+}
+.dropdown-menu {
+  width: 300px;
+}

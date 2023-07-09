@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import api from "./api";
+// import { ProductsProvider } from "./components/hooks/useProducts";
 
 import Main from "./layouts/main";
 import Login from "./layouts/login";
@@ -18,39 +19,35 @@ import Info from "./components/ui/menuItems/info";
 
 import NavBar from "./components/ui/navBar";
 import Footer from "./components/ui/footer";
+import { useProducts } from "./components/hooks/useProducts";
 
 function App() {
-  const [products, setProducts] = useState();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchProducts, setSearchProducts] = useState("");
-
-  useEffect(() => {
-    api.products.fetchAll().then((data) => setProducts(data));
-  }, []);
-  useEffect(() => {
-    if (products) {
-      const search = searchQuery
-        ? products.filter(
-            (product) =>
-              product.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !==
-              -1
-          )
-        : "";
-      setSearchProducts(search);
-    }
-  }, [searchQuery]);
+  // const { searchProducts, setSearchProducts } = useProducts;
+  // const [products, setProducts] = useState();
+  // const [searchQuery, setSearchQuery] = useState("");
+  // const [searchProducts, setSearchProducts] = useState("");
 
   // useEffect(() => {
-  //   console.log(products ? products : "products");
-  //   console.log(searchQuery ? searchQuery : "searchQuery");
-  //   console.log(searchProducts ? searchProducts : "searchProducts");
-  // }, [products, searchQuery, searchProducts]);
+  //   api.products.fetchAll().then((data) => setProducts(data));
+  // }, []);
+  // useEffect(() => {
+  //   if (products) {
+  //     const search = searchQuery
+  //       ? products.filter(
+  //           (product) =>
+  //             product.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !==
+  //             -1
+  //         )
+  //       : "";
+  //     setSearchProducts(search);
+  //   }
+  // }, [searchQuery]);
 
   return (
     <>
-      <NavBar setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
+      <NavBar />
       <Switch>
-        {searchProducts && (
+        {/* {searchProducts && (
           <div>
             <h1 className='text-center'>
               {searchProducts.length
@@ -58,11 +55,11 @@ function App() {
                 : "К сожалению, ничего не нашлось..."}
             </h1>
             <ProductCard
-              selectedItem={searchProducts}
-              setSubcategorySelect={setSearchProducts}
+              searchProducts={searchProducts}
+              setSearchProducts={setSearchProducts}
             />
           </div>
-        )}
+        )} */}
         <Route path='/' exact component={Main} />
         <Route path='/login/:type?' component={Login} />
         <Route path='/dif' component={Dif} />

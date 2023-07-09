@@ -7,7 +7,7 @@ const Basket = ({ status, ...rest }) => {
     : "text-warning bi bi-cart";
   return (
       <i
-        className={"mx-2 " + classNameStatus}
+        className={" mx-2 " + classNameStatus}
         {...rest}
         role='button'
       ></i>

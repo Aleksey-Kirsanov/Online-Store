@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { useProducts } from "../hooks/useProducts";
 
-const NavBar = ({ setSearchQuery, searchQuery }) => {
+const NavBar = () => {
+  const { searchQuery, setSearchQuery, clearSearch } = useProducts();
   const history = useHistory();
   const isLogin = false;
   const isAdmin = false;
 
-  const clearSearch = () => {
-    setSearchQuery("");
-  };
   const handleClickLogin = () => {
     clearSearch();
     history.push("/login");
@@ -21,6 +20,9 @@ const NavBar = ({ setSearchQuery, searchQuery }) => {
   const handleSearchQuery = ({ target }) => {
     setSearchQuery(target.value);
   };
+  const handleClickCandle = () => {};
+  const handleClickDif = () => {};
+  const handleClickAuto = () => {};
 
   return (
     <nav className='navbar navbar-expand-xxl navbar-dark bg-dark zindex-tooltip'>
@@ -89,32 +91,44 @@ const NavBar = ({ setSearchQuery, searchQuery }) => {
               </div>
               <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
                 <li>
-                  <Link className='dropdown-item' to='/candle'           onClick={clearSearch}>
+                  <Link
+                    className='dropdown-item'
+                    to='/candle'
+                    onClick={clearSearch}
+                  >
                     Ароматические свечи
                   </Link>
                 </li>
                 <li>
-                  <Link className='dropdown-item' to='/dif'           onClick={clearSearch}>
+                  <Link
+                    className='dropdown-item'
+                    to='/dif'
+                    onClick={clearSearch}
+                  >
                     Диффузоры
                   </Link>
-                  <Link className='dropdown-item' to='/auto'           onClick={clearSearch}>
+                  <Link
+                    className='dropdown-item'
+                    to='/auto'
+                    onClick={clearSearch}
+                  >
                     Автомобильные диффузоры
                   </Link>
                 </li>
               </ul>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/delivery'           onClick={clearSearch}>
+              <Link className='nav-link' to='/delivery' onClick={clearSearch}>
                 Доставка и оплата
               </Link>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/contacts'           onClick={clearSearch}>
+              <Link className='nav-link' to='/contacts' onClick={clearSearch}>
                 Контанты
               </Link>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/info'           onClick={clearSearch}>
+              <Link className='nav-link' to='/info' onClick={clearSearch}>
                 О нас
               </Link>
             </li>

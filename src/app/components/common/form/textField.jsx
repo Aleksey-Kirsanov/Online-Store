@@ -21,8 +21,8 @@ const TextField = ({
     setShowPassword((prevState) => !prevState);
   };
   return (
-    <div className='mb-4'>
-      <label htmlFor={name}>{label}</label>
+    <div className='mb-3'>
+      <label htmlFor={name} className="form-label">{label}</label>
       <div className='input-group has-validation'>
         <input
           type={showPassword ? "text" : type}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Bookmark from "../common/bookmark";
 import Table from "../common/table";
 
@@ -12,7 +12,6 @@ const ProductsTable = ({
   decrease,
   ...rest
 }) => {
-  console.log(products);
   const columns = {
     name: {
       path: "name",
@@ -25,13 +24,19 @@ const ProductsTable = ({
     price: {
       path: "price",
       name: "Цена",
-      component: (product) => <p>{product.price}</p>,
+      component: (product) => {
+        if (product.subcategory === "sales") {
+          return <p>{product.price * (85 / 100)}</p>;
+        } else {
+          return <p>{product.price}</p>;
+        }
+      },
     },
     quantity: {
       path: "quantity",
       name: "Количество",
       component: (product) => (
-        <div className='input-group'>
+        <div className='input-group '>
           <button
             type='button'
             className='btn btn-outline-secondary minus'
@@ -60,7 +65,13 @@ const ProductsTable = ({
     cost: {
       path: "cost",
       name: "Стоимость",
-      component: (product) => <p>{product.totalPrice}</p>,
+      component: (product) => {
+        if (product.subcategory === "sales") {
+          return <p>{product.totalPrice * (85 / 100)}</p>;
+        } else {
+          return <p>{product.totalPrice}</p>;
+        }
+      },
     },
     bookmark: {
       path: "bookmark",

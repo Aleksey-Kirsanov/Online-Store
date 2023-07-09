@@ -1,47 +1,108 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "../components/common/productCard";
-import Subcategories from "../components/ui/subcategories";
-import api from "../api";
+import { useProducts } from "../components/hooks/useProducts";
 
 const Main = () => {
-  const [products, setProducts] = useState();
-  const [subcategorySelect, setSubcategorySelect] = useState();
-  const [actiseClass, setActiveClass] = useState("все");
+  const {
+    products,
+    setProducts,
+    searchProducts,
+    setSearchProducts,
+    searchQuery,
+    clearSearch,
+  } = useProducts();
+  const [sortProducts, setSortProducts] = useState(products);
+  const [filter, setFilter] = useState("all");
+
+  const onSort = (filter) => {
+    setFilter(filter);
+    clearSearch();
+    setSearchProducts();
+  };
 
   useEffect(() => {
-    api.products.fetchAll().then((data) => setProducts(data));
-  }, []);
+    setSortProducts(
+      filter !== "all"
+        ? products.filter((product) => product.subcategory == filter)
+        : products
+    );
+  }, [products, filter]);
 
-  const handleSubcategorySelect = (item) => {
-    setSubcategorySelect(item);
-    setActiveClass(item[0].subcategory);
-  };
-  const handleClassAllActive = (item) => {
-    setSubcategorySelect(item);
-    setActiveClass("все");
-  };
-
-  // console.log(actiseClass);
+  useEffect(() => {
+    if (products) {
+      const search = searchQuery
+        ? products.filter(
+            (product) =>
+              product.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !==
+              -1
+          )
+        : "";
+      setSearchProducts(search);
+    }
+  }, [searchQuery]);
 
   if (products) {
     return (
       <>
-        <Subcategories
-          items={products}
-          onSort={handleSubcategorySelect}
-          selectedItem={subcategorySelect}
-          setSubcategorySelect={setSubcategorySelect}
-          actiseClass={actiseClass}
-          handleClassAllActive={handleClassAllActive}
-        />
+        <div
+          className='btn-group d-flex p-2 bd-highlight'
+          role='group'
+          aria-label='Basic radio toggle button group'
+        >
+          <button
+            type='radio'
+            className={"btn btn-outline-primary"}
+            onClick={() => {
+              onSort("news");
+            }}
+          >
+            Новинки
+          </button>
+          <button
+            type='radio'
+            className={"btn btn-outline-primary"}
+            onClick={() => {
+              onSort("sales");
+            }}
+          >
+            Акции
+          </button>
+          <button
+            type='radio'
+            className={"btn btn-outline-primary"}
+            onClick={() => {
+              onSort("hits");
+            }}
+          >
+            Хиты
+          </button>
+          <button
+            type='radio'
+            className={"btn btn-outline-success"}
+            onClick={() => {
+              onSort("all");
+            }}
+          >
+            Все категории
+          </button>
+        </div>
         <ProductCard
-        setSubcategorySelect={setSubcategorySelect}
-          selectedItem={subcategorySelect ? subcategorySelect : products}
+          products={products}
+          setProducts={setProducts}
+          sortProducts={sortProducts}
+          setSortProducts={setSortProducts}
+          searchProducts={searchProducts}
+          setSearchProducts={setSearchProducts}
         />
       </>
     );
   }
-  return "Loading...";
+  return (
+    <span className='d-flex position-absolute top-50 start-50 translate-middle'>
+      <div className='spinner-border' role='status' />
+      <p className="mx-2">Loading...</p>
+    </span>
+  );
 };
 
 export default Main;
